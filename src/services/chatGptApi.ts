@@ -10,12 +10,9 @@ const chatApi = axios.create({
 
 export const fetcher = async (payload: object) => {
     try {
-        console.log('Payload:', payload);
         const response = await chatApi.post('', payload); 
-        console.log('Response:', response);
         return response.data.choices[0].message.content; 
     } catch (error: any) {
-        console.log('API error:', error.response ? error.response.data : error.message);
         throw error;
     }
  };

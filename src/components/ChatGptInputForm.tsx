@@ -41,7 +41,7 @@ function ChatGptInputForm() {
             ) : (
                 <>
                     <div>Here is output from chatGPT</div>
-                    <div className="text-bold">{data}</div>
+                    <div className="font-bold">{data}</div>
                 </>
             )}
         </div>

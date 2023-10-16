@@ -1,6 +1,6 @@
 import { get, getDatabase, ref } from "firebase/database";
 import { useState } from "react";
-import { auth } from "../services/firebase";
+import { auth } from "../../services/firebase";
 
 const UserPage = () => {
     const [users, setUsers] = useState<any[]>([]);

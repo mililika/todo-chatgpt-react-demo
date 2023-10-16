@@ -6,7 +6,7 @@ const LogInButton = () => {
     return (
         <button
             type="button"
-            className="text-blue-700 hover:text-blue-600"
+            className="text-white hover:text-blue-600"
             onClick={() => navigate("/login")}
         >
             Log In

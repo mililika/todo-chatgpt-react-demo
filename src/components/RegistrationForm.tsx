@@ -46,7 +46,7 @@ const RegistrationFrom = () => {
     };
 
     return (
-        <div className="flex h-screen dark:bg-gray-800 justify-center">
+        <div className="flex justify-center">
             <div className="flex flex-col ">
                 <form className="pt-20 w-[500px]">
                     {error.length !== 0 && (

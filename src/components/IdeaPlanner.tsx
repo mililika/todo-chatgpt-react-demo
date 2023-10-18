@@ -112,7 +112,7 @@ const IdeaPlanner = () => {
             {chatResult && (
                 <div className="flex flex-col space-y-4">
                     <FormattedTextComponent content={chatResult} />
-                    <ExportButton content={chatResult} />
+                    <ExportButton userIdea={userIdea} />
                 </div>
             )}
         </div>

@@ -18,7 +18,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "types": ["node", "html2pdf.js"],
   },
   "include": [
     "src"

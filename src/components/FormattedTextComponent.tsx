@@ -22,7 +22,12 @@ const ApplyTailwindStyles = (text: string) => {
 const FormattedTextComponent: React.FC<{ content: string }> = ({ content }) => {
     const styledContent = ApplyTailwindStyles(content);
 
-    return <div dangerouslySetInnerHTML={{ __html: styledContent }} />;
+    return (
+        <div
+            id="ai-result-answer"
+            dangerouslySetInnerHTML={{ __html: styledContent }}
+        />
+    );
 };
 
 export default FormattedTextComponent;

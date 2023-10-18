@@ -11,7 +11,7 @@ const ApplyTailwindStyles = (text: string) => {
     );
     text = text.replace(
         /<h3>/g,
-        '<h3 class="font-semibold text-2xl mt-4 mb-2 dark:text-gray-400">'
+        '<h3 class="font-semibold text-2xl mt-4 mb-2 dark:text-white">'
     );
 
     // ... any other styles as required ...

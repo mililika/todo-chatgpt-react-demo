@@ -40,13 +40,15 @@ const Home = () => {
                 <LoadingSpinner />
             ) : userIdeas.length !== 0 ? (
                 <div className="mt-10 px-20 flex flex-col space-y-4">
-                    {userIdeas.map((idea, index) => (
-                        <CardComponent
-                            key={index}
-                            title={idea.idea}
-                            description={idea.plan}
-                        />
-                    ))}
+                    {userIdeas
+                        .map((idea, index) => (
+                            <CardComponent
+                                key={index}
+                                title={idea.idea}
+                                description={idea.plan}
+                            />
+                        ))
+                        .reverse()}
                 </div>
             ) : (
                 <div>There is no ideas</div>

@@ -4,6 +4,8 @@ import useSWR from "swr";
 import { useAuth } from "../contexts/AuthContext";
 import { fetcher } from "../services/chatGptApi";
 import { createPayload } from "../utilities/payloadUtility";
+import ExportButton from "./ExportButton";
+import FormattedTextComponent from "./FormattedTextComponent";
 import LoadingSpinner from "./LoadingSpinner";
 
 type PayloadRequest = {
@@ -26,6 +28,8 @@ const IdeaPlanner = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
+
+        setChatResult("");
 
         const payload = createPayload(userIdea);
         setSubmittedIdea(userIdea);
@@ -61,6 +65,10 @@ const IdeaPlanner = () => {
             saveToDatabase();
         }
     }, [data, uid, submittedIdea]);
+
+    if (chatResult) {
+        console.log(chatResult);
+    }
 
     return (
         <div className="mt-10 h-full flex flex-col px-80">
@@ -102,7 +110,10 @@ const IdeaPlanner = () => {
                 </div>
             )}
             {chatResult && (
-                <div className="mt-6 dark:text-white text-lg">{chatResult}</div>
+                <div className="flex flex-col space-y-4">
+                    <FormattedTextComponent content={chatResult} />
+                    <ExportButton content={chatResult} />
+                </div>
             )}
         </div>
     );

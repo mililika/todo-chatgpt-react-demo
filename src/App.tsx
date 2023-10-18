@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import PrivateRoute from "./components/PrivateRoute";
 import RegistrationForm from "./components/RegistrationForm";
+import TodoAi from "./components/TodoAi";
 import Welcome from "./components/Welcome";
 import AuthProvider from "./contexts/AuthContext";
 
@@ -33,7 +34,7 @@ function App() {
                         />
                         <Route
                             path="/todo"
-                            element={<PrivateRoute element={<IdeaPlanner />} />}
+                            element={<PrivateRoute element={<TodoAi />} />}
                         />
                         <Route
                             path="/ideas-plan"

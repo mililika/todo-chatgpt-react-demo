@@ -2,10 +2,6 @@ import React from "react";
 
 const ApplyTailwindStyles = (text: string) => {
     text = text.replace(
-        /<h3>/g,
-        '<h3 class="font-bold text-xl dark:text-white mt-4 mb-2">'
-    );
-    text = text.replace(
         /<p>/g,
         '<p class="text-base mt-2 mb-4 dark:text-gray-400">'
     );

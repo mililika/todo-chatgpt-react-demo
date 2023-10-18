@@ -1,5 +1,6 @@
 import html2pdf from "html2pdf.js";
 import { useState } from "react";
+import "../index.css";
 import LoadingSpinner from "./LoadingSpinner";
 
 type ExportButtonProps = {
@@ -11,6 +12,7 @@ const ExportButton = ({ userIdea }: ExportButtonProps) => {
 
     const handleExport = () => {
         setExporting(true);
+
         try {
             const element = document.getElementById("ai-result-answer");
 
@@ -18,23 +20,22 @@ const ExportButton = ({ userIdea }: ExportButtonProps) => {
                 throw new Error("Couldn't find the content element to export.");
             }
 
-            // Inline the styles directly (for demonstration purposes, it's done here, but ideally, you'd do this elsewhere)
-            element.querySelectorAll("h3").forEach((h3) => {
-                h3.style.fontWeight = "bold";
-                h3.style.fontSize = "24px";
-                h3.style.color = "#000";
-                h3.style.marginTop = "16px";
-                h3.style.marginBottom = "8px";
+            let new_element = element.cloneNode(true) as HTMLElement;
+
+            new_element.querySelectorAll("*").forEach((node) => {
+                node.className = "";
             });
 
-            element.querySelectorAll("p").forEach((p) => {
-                p.style.fontSize = "16px";
-                p.style.marginTop = "8px";
-                p.style.marginBottom = "16px";
-                p.style.color = "#333";
+            new_element.querySelectorAll("h3").forEach((h3) => {
+                h3.className = "pdf-heading";
             });
 
-            // Continue with PDF generation as before
+            new_element.querySelectorAll("p").forEach((p) => {
+                p.className = "pdf-paragraph";
+            });
+
+            document.body.appendChild(new_element);
+
             const opt = {
                 margin: 20,
                 filename: `${userIdea}.pdf`,
@@ -43,7 +44,9 @@ const ExportButton = ({ userIdea }: ExportButtonProps) => {
                 jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
             };
 
-            html2pdf().from(element).set(opt).save();
+            html2pdf().from(new_element).set(opt).save();
+
+            document.body.removeChild(new_element);
 
             setExporting(false);
         } catch (error) {

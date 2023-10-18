@@ -1,20 +1,13 @@
 import React from "react";
+import "../index.css";
 
 const ApplyTailwindStyles = (text: string) => {
-    text = text.replace(
-        /<p>/g,
-        '<p class="text-base mt-2 mb-4 dark:text-gray-400">'
-    );
+    text = text.replace(/<p>/g, '<p class="pdf-paragraph dark:text-gray-300">');
     text = text.replace(
         /<h1>/g,
         '<h1 class="font-bold text-3xl mt-6 mb-4 dark:text-white">'
     );
-    text = text.replace(
-        /<h3>/g,
-        '<h3 class="font-semibold text-2xl mt-4 mb-2 dark:text-white">'
-    );
-
-    // ... any other styles as required ...
+    text = text.replace(/<h3>/g, '<h3 class="pdf-heading dark:text-white">');
 
     return text;
 };

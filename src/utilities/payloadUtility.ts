@@ -15,7 +15,7 @@ export const createPayload = (userMessage: string) => {
       },
       { 
         role: "user", 
-        content: `Plese provide short step by step plan of realization this idea: ${userMessage}. Max in 8 steps. `}],
+        content: `Plese provide short step by step plan of realization this idea: ${userMessage}. Max in 7 steps. `}],
       temperature: 0.7,
     };
 };
